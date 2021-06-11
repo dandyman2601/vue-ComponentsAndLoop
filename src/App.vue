@@ -7,8 +7,8 @@
     <Yellow></Yellow>
     
     <div v-for="(item) in arrayData" :key="item">
-      <div v-if="!(item%2)"><h1>{{item}} is an {{even}} number</h1></div>
-      <div v-if="item%2"><h1>{{item}} is an {{odd}} number</h1></div>      
+      <div v-if="isEven(item)"><h1>{{item}} is an {{even}} number</h1></div>
+      <div v-else><h1>{{item}} is an {{odd}} number</h1></div>      
     </div>
   </div>
 </template>
@@ -29,12 +29,16 @@ export default {
   },
   data () {
     return {
-      arrayData: [100,3,10,9,30,3,6],
+      arrayData: [51,30,15,9,30,3,6],
       even: "EVEN",
       odd: "ODD"
-
     }
   },
+  methods:{
+    isEven(item){
+      return item % 2==0 ? true : false
+    }
+  }
 }
 </script>
 
